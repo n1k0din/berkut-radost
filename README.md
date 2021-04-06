@@ -11,10 +11,10 @@
 
 1. Скачайте код и перейдите в папку проекта
   ```bash
-  git clone https://github.com/n1k0din/layout-1.git
+  git clone https://github.com/n1k0din/berkut-radost.git
   ```  
   ```bash
-  cd layout-1
+  cd berkut-radost
   ```
 2. Установите вирт. окружение
 ```bash
