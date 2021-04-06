@@ -101,6 +101,14 @@ def build_objects(objects_names, shift_start, intervals):
     return objects
 
 
+def build_context(objects, shift_start):
+    return {
+        'shift_start_day': shift_start.strftime('%d.%m.%Y'),
+        'shift_end_day': (shift_start + ONE_DAY).strftime('%d.%m.%Y'),
+        'objects': objects,
+    }
+
+
 def main():
     arg_parser = create_arguments_parser()
     shift_date, shifts_amount, start_hour = get_args_from_parser(arg_parser)
@@ -118,11 +126,7 @@ def main():
 
         objects = build_objects(objects_names, shift_start, intervals)
 
-        context = {
-            'shift_start_day': shift_start.strftime('%d.%m.%Y'),
-            'shift_end_day': (shift_start + ONE_DAY).strftime('%d.%m.%Y'),
-            'objects': objects,
-        }
+        context = build_context(objects, shift_start)
 
         doc.render(context)
         filename = f'output/{shift_start.strftime("%d%m%Y")}-'\
